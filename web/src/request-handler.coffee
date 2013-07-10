@@ -18,7 +18,12 @@ exports.handleRequest = (req, res) ->
 
   else if req.method is 'GET'
     parsedURL = url.parse(req.url)
+    console.log(parsedURL)
     console.log("Requested path is #{parsedURL.path}")
     console.log("Data Directory #{exports.datadir}")
-    res.writeHead(200)
-    res.end("<input> #{parsedURL.path}")
+    if parsedURL.path.match(/^\/$|^\/(www\.\w+\.\w{1,4})$/)
+      res.writeHead(200)
+      res.end("<input> #{parsedURL.path}")
+    else
+      res.writeHead(404)
+      res.end()
