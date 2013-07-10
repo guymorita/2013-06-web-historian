@@ -1,5 +1,5 @@
 var stubs = require("./helpers/stubs");
-var htmlFetcherHelpers = require("../workers/lib/html-fetcher-helpers");
+var htmlFetcherHelpers = require("../workers/compiled/src/lib/html-fetcher-helpers");
 var fs = require("fs");
 
 describe("html fetcher helpers", function(){
@@ -20,7 +20,7 @@ describe("html fetcher helpers", function(){
     });
   });
   
-  xit("should have a 'downloadUrls' function", function(){
+  it("should have a 'downloadUrls' function", function(){
     var result = htmlFetcherHelpers.downloadUrls();
     expect(result).toBeTruthy();
   });

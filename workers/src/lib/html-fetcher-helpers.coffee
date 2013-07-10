@@ -1,7 +1,9 @@
-exports.readUrls = function(filePath, cb){
-  // fixme
-};
+_ = require 'lodash'
 
-exports.downloadUrls = function(urls){
-  // fixme
-};
+exports.readUrls = (filePath, cb) ->
+  console.log filePath, cb
+  _.each filePath, (value) ->
+    cb value
+
+exports.downloadUrls = (urls) ->
+  true

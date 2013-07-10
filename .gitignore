@@ -1,4 +1,4 @@
-web/compiled
-workers/compiled
-spec/testdata
-data/
+web/compiled/*
+workers/compiled/*
+spec/testdata/*
+data/*
