@@ -1,11 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+  <link href="http://twitter.github.io/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+  <script src="http://twitter.github.io/bootstrap/assets/js/jquery.js"></script>
+  <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-transition.js"></script>
+  <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-alert.js"></script>
+  <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-modal.js"></script>
+  <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-dropdown.js"></script>
+  <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-scrollspy.js"></script>
+  <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-tab.js"></script>
+  <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-tooltip.js"></script>
+  <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-popover.js"></script>
+  <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-button.js"></script>
+  <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-collapse.js"></script>
+  <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-carousel.js"></script>
+  <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-typeahead.js"></script>
+  <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-affix.js"></script>
   <link rel="stylesheet" type="text/css" href="styles.css" />
+  <script src="js/controllers.js"></script>
 </head>
-<body>
-  <form method="POST">
+<body ng-app ng-controller="UrlListCtrl">
+<!--   <form method="POST">
     <input type="input" name="url"></input>
-  </form>
+  </form> -->
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span4">
+        <!--Sidebar content-->
+
+        Search: <input ng-model="query">
+        Sort by:
+        <select ng-model="orderProp">
+          <option value="age">Recently Added</option>
+          <option value="name">Name - Alphabetical</option>
+        </select>
+      </div>
+      <div class="span7 push1">
+        <ul class="sites">
+          <li ng-repeat="site in sites | filter:query | orderBy:orderProp">
+            <a href="{{site.url}}">{{site.name}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
